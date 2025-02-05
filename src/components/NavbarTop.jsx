@@ -2,8 +2,12 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import logo from "../assets/logo.png";
 import { navItems } from "../constants";
+import { titleUserName } from "../constants/template";
+import { SlSocialFacebook } from "react-icons/sl";
+import { SlSocialTwitter } from "react-icons/sl";
+import { RiLinkedinBoxLine } from "react-icons/ri";
 
-const Navbar = () => {
+const NavbarTop = () => {
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
 
   const toggleNavbar = () => {
@@ -11,12 +15,13 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="sticky top-0 z-50 py-3 backdrop-blur-lg border-b border-neutral-700/80">
+    <nav className=" top-0 z-50 py-3 backdrop-blur-lg border-b bg-[#274584] border-[#274584]">
       <div className="container px-4 mx-auto relative lg:text-sm">
         <div className="flex justify-between items-center">
           <div className="flex items-center flex-shrink-0">
-            <img className="h-10 w-10 mr-2" src={logo} alt="Logo" />
-            <span className="text-xl tracking-tight">VirtualR</span>
+            <span className="text-lg uppercase  text-[#fff] font-normal tracking-tight">
+              Welcome To {titleUserName}
+            </span>
           </div>
           <ul className="hidden lg:flex ml-14 space-x-12">
             {navItems.map((item, index) => (
@@ -35,11 +40,6 @@ const Navbar = () => {
             >
               Create an account
             </a>
-          </div>
-          <div className="lg:hidden md:flex flex-col justify-end">
-            <button onClick={toggleNavbar}>
-              {mobileDrawerOpen ? <X /> : <Menu />}
-            </button>
           </div>
         </div>
         {mobileDrawerOpen && (
@@ -69,4 +69,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavbarTop;
